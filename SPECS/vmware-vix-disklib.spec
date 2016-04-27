@@ -1,17 +1,28 @@
+%global releasever 6.0.2
+%global buildver 3566099
+
+# Disable debug package
+%global debug_package %{nil}
+
+# Disable automatic dependency and provides information
+%define __find_provides %{nil} 
+%define __find_requires %{nil} 
+%define _use_internal_dependency_generator 0
+Autoprov: 0
+Autoreq: 0
+
 Name:           vmware-vix-disklib
-Version:        6.0.2
+Version:        %{releasever}
 Release:        1%{?dist}
 Summary:        The Virtual Disk Development Kit (VDDK) is a collection of C libraries, code samples, utilities, and documentation to help you create or access VMware virtual disk storage.
 
 License:        Proprietary
 URL:            https://developercenter.vmware.com/web/sdk/60/vddk
-Source0:        VMware-vix-disklib-6.0.2-3566099.x86_64.tar.gz
+Source0:        VMware-vix-disklib-%{releasever}-%{buildver}.x86_64.tar.gz
 NoSource:	0
 
 BuildRequires:  coreutils
 #Requires:
-
-Provides: 	libvixDiskLib.so.6()(64bit) libvixDiskLibVim.so.6()(64bit) libvixMntapi.so.1()(64bit)
 
 %description
 The Virtual Disk Development Kit (VDDK) is a collection of C libraries, code samples, utilities, and documentation to help you create or access VMware virtual disk storage. The kit includes:
